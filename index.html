@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Тапалка по скуфу</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#171717;color:#fff;font-family:Arial,sans-serif;text-align:center;padding:20px}
+h1{color:#ffc247;margin:10px 0}
+.panel{max-width:440px;margin:0 auto}
+.card{background:#292929;border-radius:18px;padding:16px;margin:14px 0}
+#scuf{font-size:110px;cursor:pointer;user-select:none;transition:transform .1s}
+#scuf:active{transform:scale(.93)}
+button{background:#ffc247;color:#252018;border:0;border-radius:12px;padding:12px;font-weight:bold;font-size:16px;width:100%;margin-top:8px}
+button:disabled{background:#666;color:#bbb}
+.stat{font-size:20px;margin:8px}
+.small{color:#bbb;font-size:14px}
+</style>
+</head>
+<body>
+<div class="panel">
+<h1>СКУФ ТАПАЛКА</h1>
+<div class="card">
+<div class="stat">🪙 Монеты: <b id="coins">0</b></div>
+<div class="stat">👆 За клик: <b id="power">1</b></div>
+<div class="stat">⭐ Уровень: <b id="level">1</b></div>
+</div>
+<div class="card">
+<div id="scuf" role="button" aria-label="Нажми на скуфа">🧔🏻</div>
+<div>Нажимай на скуфа и зарабатывай монеты!</div>
+</div>
+<div class="card">
+<h2>🛒 Улучшения</h2>
+<div id="upgradeName">Прокачка пальца</div>
+<div class="small">Цена: <span id="price">25</span> монет</div>
+<button id="upgrade">Улучшить клик</button>
+</div>
+<div class="card">
+<h2>📱 Телефон скуфа</h2>
+<div id="phone">Бомж-телефон</div>
+<div class="small">Накопи монеты и открывай новые уровни!</div>
+</div>
+<button id="reset" style="background:#555;color:white">Начать заново</button>
+<p class="small">Прогресс этой версии сохраняется в браузере на устройстве.</p>
+</div>
+<script>
+const defaults={coins:0,power:1,level:1,price:25};
+let data;
+try{data={...defaults,...JSON.parse(localStorage.getItem('scufSave')||'{}')}}catch(e){data={...defaults}}
+const phones=['Бомж-телефон','Кнопочная легенда','Блатной кнопочник','СкуфPhone 4','СкуфPhone Pro','Золотой Скуффон','Императорский смартфон','Телефон миллионера','КриптоСкуф X','Телефон повелителя'];
+function save(){localStorage.setItem('scufSave',JSON.stringify(data))}
+function render(){
+document.getElementById('coins').textContent=Math.floor(data.coins);
+document.getElementById('power').textContent=data.power;
+document.getElementById('level').textContent=data.level;
+document.getElementById('price').textContent=data.price;
+document.getElementById('upgrade').disabled=data.coins<data.price;
+document.getElementById('phone').textContent=phones[Math.min(data.level-1,phones.length-1)];
+document.getElementById('upgradeName').textContent='Прокачка пальца · уровень '+data.level;
+}
+document.getElementById('scuf').addEventListener('click',()=>{
+data.coins+=data.power;
+if(data.coins>=data.level*100)data.level=Math.min(10,Math.floor(data.coins/100)+1);
+save();render();
+});
+document.getElementById('upgrade').addEventListener('click',()=>{
+if(data.coins<data.price)return;
+data.coins-=data.price;data.power++;data.price=Math.ceil(data.price*1.7);save();render();
+});
+document.getElementById('reset').addEventListener('click',()=>{
+if(confirm('Точно начать заново?')){
+data={...defaults};save();render();
+}
+});
+render();
+</script>
+</body>
+</html>
