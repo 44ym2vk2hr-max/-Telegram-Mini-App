@@ -2,6 +2,53 @@
 <html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><meta name="theme-color" content="#171717"><title>Тапалка по скуфу</title><script src="https://telegram.org/js/telegram-web-app.js"></script>
 <style>
 :root{--gold:#ffc247;--bg:#171717;--panel:#292929;--muted:#aaa}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#f7f7f7;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button{font:inherit;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}button:disabled{opacity:.45;cursor:not-allowed}.wrap{width:min(100%,460px);margin:auto;padding:14px 14px 30px}header{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:5px 0 15px}h1{font-size:25px;color:var(--gold);margin:8px 0}.pill{background:#353535;border-radius:999px;padding:7px 10px;font-size:13px;color:#ddd}.card{background:var(--panel);border:1px solid #414141;border-radius:18px;padding:16px;margin:12px 0}.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}.stat{background:#202020;border-radius:12px;padding:10px;text-align:center}.stat b{display:block;color:var(--gold);font-size:21px;margin-top:4px}.small{font-size:13px;color:var(--muted)}#scuf{display:flex;align-items:center;justify-content:center;width:100%;height:245px;padding:0;border:0;border-radius:16px;background:radial-gradient(ellipse at center,#51402a 0,#29231d 43%,#202020 75%);user-select:none;position:relative;overflow:hidden}#characterImage{width:100%;height:100%;object-fit:cover;object-position:center;display:block}#scuf .hint{z-index:1;background:linear-gradient(transparent,rgba(0,0,0,.7));left:0;right:0;padding:22px 0 10px}#scuf:active{transform:scale(.985)}#scuf .hint{position:absolute;bottom:13px;font-size:13px;color:#ddd}.actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px}.mainbtn{border:0;border-radius:12px;padding:13px 10px;background:var(--gold);color:#242018;font-weight:750}.secondary{border:1px solid #555;border-radius:12px;padding:12px 10px;background:#363636;color:#fff;font-weight:650}.section-title{display:flex;align-items:center;justify-content:space-between;gap:8px}.shop-list{display:grid;gap:9px;margin-top:12px}.item{display:flex;align-items:center;gap:10px;padding:11px;background:#202020;border:1px solid #414141;border-radius:13px}.item .emoji{font-size:30px;width:38px;text-align:center}.item .desc{flex:1;min-width:0}.item .desc strong{display:block}.item .desc span{display:block;color:var(--muted);font-size:12px;margin-top:3px}.item button{border:0;border-radius:10px;padding:10px 9px;background:var(--gold);color:#241f16;font-weight:750;min-width:88px}.item button:disabled{background:#555;color:#ccc}.notice{color:var(--muted);font-size:12px;line-height:1.45;margin:12px 2px}.upgrade-card{background:#202020;border:1px solid #414141;border-radius:15px;padding:13px;margin-top:10px}.upgrade-head{display:flex;gap:10px;align-items:center}.upgrade-icon{font-size:34px;width:44px;text-align:center}.upgrade-info{flex:1;min-width:0}.upgrade-info strong{display:block}.upgrade-info span{display:block;color:var(--muted);font-size:12px;margin-top:3px}.upgrade-card button{width:100%;margin-top:11px;border:0;border-radius:10px;padding:12px;background:var(--gold);color:#241f16;font-weight:800}.upgrade-card button:disabled{background:#555;color:#ccc}.skin-line{font-size:12px;color:#f3ce79;margin-top:8px}.meter{height:6px;background:#3a3a3a;border-radius:99px;overflow:hidden;margin-top:9px}.meter span{display:block;height:100%;background:var(--gold);width:0}.section-tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.section-tabs button{border:1px solid #555;background:#333;color:#fff;border-radius:10px;padding:10px 6px;font-size:13px}.section-tabs button.active{background:var(--gold);color:#241f16;border-color:var(--gold)}.income-line{color:#9fe5a5;font-size:12px;margin-top:5px}#toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:#f5c451;color:#241f16;padding:10px 16px;border-radius:999px;font-weight:700;display:none;z-index:5;max-width:90%;text-align:center}
+/* Premium arcade-style menu refresh */
+:root{--gold:#ffd166;--bg:#090d18;--panel:#151c2d;--muted:#9aa8c3;--line:rgba(157,180,230,.16);--accent:#8b5cf6;--mint:#6ee7b7}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{min-height:100vh;background:radial-gradient(ellipse at 50% -12%,rgba(124,58,237,.28),transparent 42%),radial-gradient(ellipse at 100% 45%,rgba(14,165,233,.10),transparent 35%),linear-gradient(180deg,#0b1020 0%,#090d18 100%);color:#f4f7ff}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.18;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:28px 28px}
+.wrap{width:min(100%,480px);padding:16px 13px 38px}
+header{margin:4px 2px 17px;align-items:flex-start}
+h1{font-size:clamp(23px,6vw,29px);line-height:1.08;letter-spacing:-.7px;margin:4px 0 8px;color:#fff;text-shadow:0 0 24px rgba(167,139,250,.25)}
+header .small{max-width:255px;line-height:1.45;color:#aebbd3}
+.pill{white-space:nowrap;background:linear-gradient(135deg,#4c1d95,#312e81);border:1px solid rgba(196,181,253,.35);box-shadow:0 5px 18px rgba(91,33,182,.22);padding:8px 11px;color:#f5f3ff;font-weight:800}
+.card{position:relative;background:linear-gradient(145deg,rgba(24,33,53,.97),rgba(17,23,39,.97));border:1px solid var(--line);border-radius:22px;padding:15px;margin:13px 0;box-shadow:0 14px 35px rgba(0,0,0,.23),inset 0 1px 0 rgba(255,255,255,.035)}
+.card:first-of-type{border-color:rgba(255,209,102,.2);background:linear-gradient(150deg,rgba(31,39,61,.98),rgba(16,22,37,.98))}
+.stats{gap:9px}
+.stat{background:linear-gradient(145deg,rgba(9,14,27,.88),rgba(25,33,52,.95));border:1px solid rgba(148,163,184,.12);border-radius:15px;padding:11px 8px;color:#b9c6de;font-size:12px;font-weight:650;letter-spacing:.15px}
+.stat b{font-size:23px;letter-spacing:-.5px;color:var(--gold);text-shadow:0 0 18px rgba(255,209,102,.13);font-variant-numeric:tabular-nums}
+#scuf{height:clamp(230px,61vw,285px);margin-top:2px;border:1px solid rgba(255,209,102,.26);border-radius:18px;background:radial-gradient(ellipse at 50% 25%,#51436d 0%,#29243f 40%,#111827 78%);box-shadow:inset 0 0 35px rgba(139,92,246,.13),0 9px 25px rgba(0,0,0,.24)}
+#characterImage{transition:transform .16s ease;object-position:center}
+#scuf:active #characterImage{transform:scale(1.025)}
+#scuf .hint{bottom:0;padding:27px 10px 12px;background:linear-gradient(transparent,rgba(5,8,17,.9));color:#fff;font-size:11px;font-weight:850;letter-spacing:1.5px;text-shadow:0 2px 5px #000}
+.actions{gap:9px;margin-top:11px}
+.mainbtn,.secondary{min-height:45px;border-radius:13px;font-size:13px;font-weight:850;transition:transform .12s ease,filter .12s ease,box-shadow .12s ease}
+.mainbtn{background:linear-gradient(135deg,#ffe08a,#ffbd3f);color:#241a06;box-shadow:0 5px 0 #b87918,0 8px 17px rgba(245,158,11,.14)}
+.secondary{background:linear-gradient(145deg,#29334d,#1a2338);border:1px solid rgba(148,163,184,.23);color:#f1f5ff}
+.mainbtn:active,.secondary:active,.item button:active,.upgrade-card button:active{transform:translateY(2px);filter:brightness(1.08)}
+.section-title h2{font-size:19px!important;letter-spacing:-.3px;color:#f7f8ff}
+#shop>p.small{line-height:1.5;color:#9daac4;margin:9px 0 12px}
+.section-tabs{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-top:13px}
+.section-tabs button{min-width:0;border-radius:13px;padding:11px 3px;font-size:11px;font-weight:800;line-height:1.35;background:linear-gradient(145deg,#202b43,#141d30);border:1px solid rgba(148,163,184,.16);color:#c8d4eb;box-shadow:inset 0 1px 0 rgba(255,255,255,.025)}
+.section-tabs button.active{background:linear-gradient(145deg,#8b5cf6,#6d28d9);border-color:rgba(221,214,254,.55);color:#fff;box-shadow:0 5px 17px rgba(109,40,217,.26),inset 0 1px 0 rgba(255,255,255,.2)}
+.upgrade-card{border-radius:18px;padding:14px;background:linear-gradient(145deg,rgba(10,15,28,.92),rgba(22,30,48,.96));border:1px solid rgba(139,92,246,.22);box-shadow:inset 0 1px 0 rgba(255,255,255,.035)}
+.upgrade-icon{width:48px;height:48px;display:grid;place-items:center;border-radius:15px;background:linear-gradient(145deg,rgba(139,92,246,.22),rgba(14,165,233,.12));border:1px solid rgba(167,139,250,.2);font-size:29px}
+.upgrade-info strong{font-size:15px;color:#f4f6ff;line-height:1.35}
+.upgrade-info span{color:#9eacc5;line-height:1.4}
+.skin-line{color:#f9d98a;font-weight:750;line-height:1.45}
+.meter{height:8px;background:#263149;border:1px solid rgba(148,163,184,.12);margin-top:11px}
+.meter span{background:linear-gradient(90deg,#8b5cf6,#38bdf8,#ffd166);border-radius:99px;box-shadow:0 0 12px rgba(139,92,246,.24);transition:width .25s ease}
+.income-line{color:var(--mint);font-weight:700;margin-top:8px}
+.upgrade-card button{min-height:46px;border-radius:13px;background:linear-gradient(135deg,#ffe08a,#ffbd3f);color:#261b07;box-shadow:0 4px 0 #b87918;font-weight:900;letter-spacing:.1px}
+.upgrade-card button:disabled{background:linear-gradient(145deg,#293247,#20283a);color:#71809b;box-shadow:none;border:1px solid rgba(148,163,184,.1)}
+#progressText{color:#b5c2da;line-height:1.6}
+#resetBtn{margin-top:5px}
+.notice{padding:0 5px;color:#7f8ca7;line-height:1.6;text-align:center}
+#toast{bottom:calc(18px + env(safe-area-inset-bottom));background:linear-gradient(135deg,#ffe08a,#ffbd3f);color:#251a06;box-shadow:0 8px 30px rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.35);font-size:13px}
+button:focus-visible{outline:2px solid #c4b5fd;outline-offset:3px}
+@media(max-width:360px){.wrap{padding-left:10px;padding-right:10px}.card{padding:12px}.section-tabs button{font-size:10px}.stat b{font-size:20px}.actions button{padding:12px 6px;font-size:12px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+
 </style></head><body><div class="wrap">
 <header><div><h1>🐏 Тапалка по скуфу</h1><div class="small">Кликай, копи монеты и прокачивай скуфа</div></div><span class="pill" id="levelBadge">Уровень 1</span></header>
 <div class="card"><div class="stats"><div class="stat">🪙 Монеты<b id="coins">0</b></div><div class="stat">👆 За тап<b id="perTap">1</b></div></div><div style="height:12px"></div>
